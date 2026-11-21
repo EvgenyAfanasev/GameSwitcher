@@ -17,6 +17,9 @@ jobs:
 
       - run: bun install --frozen-lockfile
 
+      - name: Sync electrobun devkit
+        run: bunx electrobun sync
+
       - name: Typecheck
         run: bun run typecheck
 
@@ -33,6 +36,9 @@ jobs:
           bun-version: latest
 
       - run: bun install --frozen-lockfile
+
+      - name: Sync electrobun devkit
+        run: bunx electrobun sync
 
       - name: Build Windows bundle
         run: bunx electrobun build --env=stable

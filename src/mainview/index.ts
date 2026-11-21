@@ -23,7 +23,7 @@ async function refresh(): Promise<void> {
     renderAddScreen(editing.gameId);
     return;
   }
-  if (currentGameId && store.games.some((g) => g.id === currentGameId)) {
+  if (currentGameId && store && store.games.some((g) => g.id === currentGameId)) {
     renderGameScreen(currentGameId);
     return;
   }
