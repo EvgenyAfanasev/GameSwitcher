@@ -471,6 +471,15 @@ body {
   margin-bottom: 14px;
 }
 
+.field .sheet-action {
+  margin-top: 8px;
+}
+
+.sheet-input[readonly] {
+  color: var(--text-dim);
+  background: var(--bg-raised);
+}
+
 .field-label {
   display: block;
   font-size: 13px;
