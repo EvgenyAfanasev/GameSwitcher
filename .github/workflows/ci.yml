@@ -43,7 +43,11 @@ jobs:
       - name: Build Windows bundle
         run: bunx electrobun build --env=stable
 
+      - name: List build output
+        run: Get-ChildItem -Recurse build | Select-Object -ExpandProperty FullName
+
       - uses: actions/upload-artifact@v4
         with:
           name: gameswitcher-windows-x64
-          path: build/stable-windows-x64/
+          path: build/
+          if-no-files-found: error
