@@ -22,3 +22,22 @@ jobs:
 
       - name: Tests
         run: bun test
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install --frozen-lockfile
+
+      - name: Build Windows bundle
+        run: bunx electrobun build --env=stable
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gameswitcher-windows-x64
+          path: build/stable-windows-x64/

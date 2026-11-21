@@ -46,7 +46,7 @@ export function renderMain(container: HTMLElement, store: Store, cb: MainCallbac
     });
     pills.appendChild(pill);
   }
-  pills.appendChild(h("button", { class: "pill add-pill", onclick: () => createModeDialog(store.modes.length === 0, cb) }, "+"));
+  pills.appendChild(h("button", { class: "pill add-pill", onclick: () => createModeDialog(store.modes.length === 0, cb) }, "+ Режим"));
 
   if (store.games.length === 0) {
     container.appendChild(
@@ -55,7 +55,8 @@ export function renderMain(container: HTMLElement, store: Store, cb: MainCallbac
         { class: "empty" },
         h("div", { class: "empty-icon" }, "🎮"),
         h("div", {}, "Нет игр"),
-        h("div", { class: "dim" }, "Добавьте первую игру, чтобы сохранить её профили графики"),
+        h("div", { class: "dim" }, "Добавьте игру и создайте режим сверху (например, Eco) —"),
+        h("div", { class: "dim" }, "профили графики будут привязываться к режимам"),
       ),
     );
   } else {

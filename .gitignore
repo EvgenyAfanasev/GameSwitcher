@@ -4,3 +4,4 @@ dist/
 .hutch/
 build/
 artifacts/
+.cottontail-tmp/

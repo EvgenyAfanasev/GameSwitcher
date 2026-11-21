@@ -31,6 +31,7 @@ export function bottomSheet(build: (close: () => void) => HTMLElement): () => vo
   const close = () => {
     if (closed) return;
     closed = true;
+    overlay.classList.remove("open");
     overlay.classList.add("closing");
     setTimeout(() => overlay.remove(), 180);
   };
@@ -40,6 +41,7 @@ export function bottomSheet(build: (close: () => void) => HTMLElement): () => vo
   const panel = h("div", { class: "sheet-panel" }, build(close));
   overlay.appendChild(panel);
   document.body.appendChild(overlay);
+  requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add("open")));
   return close;
 }
 
